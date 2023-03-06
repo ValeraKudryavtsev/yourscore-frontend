@@ -5,6 +5,11 @@ import Image from "./components/Image";
 import MainNav from "./components/MainNav";
 import {Link, Route, Routes} from "react-router-dom";
 import SocialMedia from "./components/SocialMedia";
+import AboutUs from "./components/AboutUs"
+import ErrorPage from "./components/ErrorPage";
+import Leagues from "./components/Leagues";
+import MatchesPage from "./components/Matches/MatchesPage";
+
 
 function App() {
   return (
@@ -17,9 +22,14 @@ function App() {
             <MainNav />
         </header>
         <main className="main">
-            jhgjhgjgjhg
             <Routes>
+                <Route path="/" element={<MatchesPage />} />
+                <Route path="/leagues" element={<Leagues />}>
+                    <Route path=":leagueCode" element={<Leagues />}/>
+                </Route>
+                <Route path="/about-us" element={<AboutUs />} />
 
+                <Route path='*' element={<ErrorPage />} />
             </Routes>
         </main>
         <footer className="footer">
