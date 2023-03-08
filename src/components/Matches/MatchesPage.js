@@ -39,7 +39,7 @@ const MatchesPage = () => {
             validMatches.push(item)
         }
     })
-    console.log(validMatches)
+    // console.log(validMatches)
 
     return(
         <>

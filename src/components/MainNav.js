@@ -1,18 +1,17 @@
-import {Link} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 
 const MainNav = () => {
-
-    // className={(currentPathName === "/leagues") ? "header__text header__text-current" : "header__text"}
+    const location = useLocation()
+    const currentPathName = location.pathname.toString().split("/")[1]
 
     return (
         <nav className="header__nav container" id="myNav">
-            <Link className="header__text" to={"/"}>Матчи</Link>
-            <Link className="header__text" to={"/leagues"}>Лиги</Link>
-            <Link className="header__text" to={"/followed"}>Избранное</Link>
-            <Link className="header__text" to={"/news"}>Лента</Link>
-            <Link className="header__text" to={"/about-us"}>Компания</Link>
-            <Link className="header__text" to={"/goods"}>Магазин</Link>
-            <Link className="header__text" to={"/profile"}>Профиль</Link>
+            <Link className={(currentPathName === "") ? "header__text header__text-current" : "header__text"} to={"/"}>Матчи</Link>
+            <Link className={(currentPathName === "leagues") ? "header__text header__text-current" : "header__text"} to={"/leagues/BL1"}>Лиги</Link>
+            <Link className={(currentPathName === "followed") ? "header__text header__text-current" : "header__text"} to={"/followed"}>Избранное</Link>
+            <Link className={(currentPathName === "news") ? "header__text header__text-current" : "header__text"} to={"/news"}>Лента</Link>
+            <Link className={(currentPathName === "about-us") ? "header__text header__text-current" : "header__text"} to={"/about-us"}>Компания</Link>
+            <Link className={(currentPathName === "profile") ? "header__text header__text-current" : "header__text"} to={"/profile"}>Профиль</Link>
         </nav>
     )
 }

@@ -7,9 +7,8 @@ import {Link, Route, Routes} from "react-router-dom";
 import SocialMedia from "./components/SocialMedia";
 import AboutUs from "./components/AboutUs"
 import ErrorPage from "./components/ErrorPage";
-import Leagues from "./components/Leagues";
+import Leagues from "./components/Leagues/Leagues";
 import MatchesPage from "./components/Matches/MatchesPage";
-
 
 function App() {
   return (
@@ -25,7 +24,7 @@ function App() {
             <Routes>
                 <Route path="/" element={<MatchesPage />} />
                 <Route path="/leagues" element={<Leagues />}>
-                    <Route path=":leagueCode" element={<Leagues />}/>
+                    <Route path=":code" element={<Leagues />} />
                 </Route>
                 <Route path="/about-us" element={<AboutUs />} />
 
