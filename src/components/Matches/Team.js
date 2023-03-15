@@ -1,4 +1,4 @@
-import Image from "../Image";
+import Image from "../Other/Image";
 
 const Team = (props) => {
     const {team} = props

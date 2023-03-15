@@ -5,6 +5,7 @@
     --white: #ffffff;
     --coral: #ff5a60;
     --text-color: #222222;
+    --gray: #5D5D5D;
 }
 
 /*-----------------------------------------------------------------------------------*/
@@ -349,8 +350,8 @@ html, body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(215, 200, 238);
-    border-bottom: .5px solid var(--text-color);
+    background-color: var(--text-color);
+    border-bottom: 1px solid var(--black);
     position: sticky;
     top: 0;
     z-index: 2;
@@ -359,7 +360,7 @@ html, body {
 .leagues__item {
     padding: 10px;
     margin: 0 5px;
-    color: var(--text-color);
+    color: var(--white);
     text-decoration: none;
     display: flex;
     align-items: center;
@@ -497,6 +498,90 @@ html, body {
 
 /*-----------------------------------------------------------------------------------*/
 
+.forwards {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.forwards__box {
+    border: 0.5px solid var(--text-color);
+    width: 60%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 25px;
+}
+
+.forwards__header {
+    width: 100%;
+    background-color: var(--text-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 0;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    margin-bottom: -1px;
+}
+
+.forwards__header-image {
+    height: 25px;
+}
+
+.forwards__heading {
+    color: var(--white);
+}
+
+/*-----------------------------------------------------------------------------------*/
+
+.player {
+    width: 98%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: .5px solid var(--text-color);
+    font-size: 15px;
+    margin-bottom: 10px;
+    padding-top: 10px;
+}
+
+.player__titles {
+    color: var(--white);
+}
+
+.player__position {
+    width: 10%;
+    padding-left: 10px;
+}
+
+.player__name {
+    width: 30%;
+}
+
+.player__team {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 30%;
+}
+
+.player__team-name {
+    margin-left: 15px;
+}
+
+.player__goals {
+    width: 10%;
+    display: flex;
+    justify-content: center;
+}
+
+/*-----------------------------------------------------------------------------------*/
+
 .about-us__list {
     margin: 25px 0;
 }
@@ -507,6 +592,107 @@ html, body {
 
 .about-us__text-marked {
     color: var(--coral);
+}
+
+/*-----------------------------------------------------------------------------------*/
+
+.sign-in {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sign-in__box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    border: .5px solid var(--text-color);
+    box-shadow: 0px 0px 15px -8px gray;
+    border-radius: 10px;
+    width: 280px;
+}
+
+.sign-in__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.sign-in__title {
+    width: 100%;
+    background-color: var(--text-color);
+    color: var(--white);
+    margin-bottom: 20px;
+    height: 60px;
+    font-size: 20px;
+    line-height: 25px;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.sign-in__subtitle {
+    color: var(--coral);
+    padding-left: 5px;
+}
+
+.sign-in__input {
+    font-size: 15px;
+    line-height: 17px;
+    color: var(--gray);
+    background-color: white;
+    border: 1px solid var(--gray);
+    width: 85%;
+    height: 40px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.sign-in__button {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 16px;
+    line-height: 20px;
+    color: var(--white);
+    background-color: var(--coral);
+    border: none;
+}
+
+.sign-in__button:hover {
+    cursor: pointer;
+    color: var(--coral);
+    background-color: var(--text-color);
+}
+
+.sign-in__text {
+    font-size: 14px;
+    line-height: 16px;
+    color: var(--gray);
+    margin-bottom: 15px;
+}
+
+.sign-in__link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.sign-in__link:hover {
+    border-bottom: .5px solid var(--text-color);
+}
+
+.sign-in__link:active {
+    color: var(--coral);
+    border-bottom: .5px solid var(--coral);
 }
 
 /*-----------------------------------------------------------------------------------*/

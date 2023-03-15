@@ -1,7 +1,7 @@
 import {Navigate, useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
-import ErrorPage from "../ErrorPage";
-import Loader from "../Loader";
+import ErrorPage from "../Other/ErrorPage";
+import Loader from "../Other/Loader";
 import Team from "./Team";
 
 const Standings = () => {
@@ -31,6 +31,8 @@ const Standings = () => {
                 })
         }, 1000)
     }, [code])
+
+    // поправить
 
     if (allowedLeagues.indexOf(code) === -1) {
         return (<Navigate to={'/leagues/BL1'} />)

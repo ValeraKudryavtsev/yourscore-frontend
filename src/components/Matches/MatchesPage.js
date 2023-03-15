@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
 import Match from "./Match";
-import Loader from "../Loader";
-import ErrorPage from "../ErrorPage";
+import Loader from "../Other/Loader";
+import ErrorPage from "../Other/ErrorPage";
 import LiveScore from "./LiveScore";
 
 const MatchesPage = () => {
@@ -45,12 +45,14 @@ const MatchesPage = () => {
         <>
             {err ? <ErrorPage /> :
                 loading ? <Loader /> :
-                    <div className="matches__page">
-                        <ul className="matches__list">
-                            {validMatches ? validMatches.map((e, id) => <Match match={e} setId={setId} id={id} key={id} />) : <p>Сегодня нет игр</p>}
-                        </ul>
-                        {validMatches[matchesArrayId] ? <LiveScore match={validMatches[matchesArrayId]} /> : null}
-                    </div>
+                    validMatches.length > 0 ?
+                        <div className="matches__page">
+                            <ul className="matches__list">
+                                {validMatches ? validMatches.map((e, id) => <Match match={e} setId={setId} id={id} key={id} />) : <p>Сегодня нет игр</p>}
+                            </ul>
+                            {validMatches[matchesArrayId] ? <LiveScore match={validMatches[matchesArrayId]} /> : null}
+                        </div> :
+                        <p>Расход</p>
             }
         </>
     )

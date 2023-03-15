@@ -1,5 +1,5 @@
 import Image from "./Image";
-import errorImg from '../images/error.svg'
+import errorImg from '../../images/error.svg'
 const ErrorPage = () => {
     return (
         <div className="error">

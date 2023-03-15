@@ -1,4 +1,4 @@
-import Image from "../Image";
+import Image from "../Other/Image";
 import Game from "./Game";
 
 const Match = (props) => {

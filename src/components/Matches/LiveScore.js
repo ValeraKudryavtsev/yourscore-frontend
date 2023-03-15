@@ -1,4 +1,4 @@
-import Image from "../Image";
+import Image from "../Other/Image";
 import Team from "./Team";
 import MatchLoad from "./MatchLoad";
 

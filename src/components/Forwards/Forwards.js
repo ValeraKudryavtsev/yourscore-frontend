@@ -1,9 +1,8 @@
 import {Link, useLocation} from "react-router-dom";
-import Standings from "./Standings";
 import Image from "../Other/Image";
+import ForwardsStandings from "./ForwardsStandings";
 
-const Leagues = () => {
-    // const allowedLeagues = ['BL1', 'PD', 'DED', 'PL', 'FL1', 'SA', 'PPL']
+const Forwards = () => {
     const location = useLocation()
     const currentPathName = location.pathname.toString().split("/")[2]
 
@@ -46,7 +45,7 @@ const Leagues = () => {
     ]
 
     return (
-        <div className="leagues">
+        <div className="forwards">
             <div className='leagues__list'>
                 {
                     allowedLeagues.map((e, id) =>
@@ -57,9 +56,9 @@ const Leagues = () => {
                     )
                 }
             </div>
-            <Standings />
+            <ForwardsStandings />
         </div>
     )
 }
 
-export default Leagues
+export default Forwards
