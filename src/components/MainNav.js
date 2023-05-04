@@ -11,7 +11,8 @@ const MainNav = () => {
             <Link className={(currentPathName === "forwards") ? "header__text header__text-current" : "header__text"} to={"/forwards/BL1"}>Бомбардиры</Link>
             <Link className={(currentPathName === "followed") ? "header__text header__text-current" : "header__text"} to={"/followed"}>Избранное</Link>
             <Link className={(currentPathName === "about-us") ? "header__text header__text-current" : "header__text"} to={"/about-us"}>Компания</Link>
-            <Link className={(currentPathName === "profile") ? "header__text header__text-current" : "header__text"} to={"/profile"}>Профиль</Link>
+            <Link className={(currentPathName === "profile" || currentPathName === "login" || currentPathName === "registration") ?
+                "header__text header__text-current" : "header__text"} to={"/profile"}>Профиль</Link>
         </nav>
     )
 }
