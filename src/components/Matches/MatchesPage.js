@@ -15,14 +15,11 @@ const MatchesPage = () => {
     useEffect(() => {
         setLoading(true)
         setTimeout(() => {
-            fetch("https://api.football-data.org/v4/matches", {
-                headers: {
-                    'X-Auth-Token': 'fe382c8a16f0430ca32f601d38888099'
-                },
-            })
+            fetch("http://localhost:8080/matches")
                 .then(resp => resp.json())
                 .then(data => {
                     setData(data.matches)
+                    console.log(data.matches)
                 })
                 .catch(err => {
                     setErr(err)
