@@ -1,0 +1,54 @@
+import {useEffect, useState} from "react";
+import ErrorPage from "../Other/ErrorPage";
+import Loader from "../Other/Loader";
+import Match from "../Matches/Match";
+import LiveScore from "../Matches/LiveScore";
+
+const FollowedMatches = (props) => {
+    const [loading, setLoading] = useState(false)
+    const [data, setData] = useState([])
+    const [err, setErr] = useState(false)
+    const [matchesArrayId, setId] = useState(0)
+
+    useEffect(() => {
+        setLoading(true)
+        setTimeout(() => {
+            fetch(`http://localhost:8080/teams/${props.code}`, {
+                headers: {
+                    "Content-Type": "application/json",
+                    "AUTHORIZATION": window.localStorage.getItem('token')
+                }
+            })
+                .then(resp => resp.json())
+                .then(data => {
+                    setData(data.matches)
+                    console.log(data.matches)
+                })
+                .catch(err => {
+                    setErr(err)
+                    // console.log(err)
+                })
+                .finally(() => {
+                    setLoading(false)
+                })
+        }, 500)
+    }, [props.code])
+
+    return (
+        <>
+            {err || !data ? <ErrorPage /> :
+                loading ? <Loader /> :
+                    data.length > 0 ?
+                        <div className="matches__page">
+                            <ul className="matches__list">
+                                {data ? data.map((e, id) => <Match match={e} setId={setId} id={id} key={id} />) : <p>Сегодня нет игр</p>}
+                            </ul>
+                            {data[matchesArrayId] ? <LiveScore match={data[matchesArrayId]} /> : null}
+                        </div> :
+                        <p>Расход</p>
+            }
+        </>
+    )
+}
+
+export default FollowedMatches
