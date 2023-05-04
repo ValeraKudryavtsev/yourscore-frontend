@@ -12,6 +12,10 @@ import MatchesPage from "./components/Matches/MatchesPage";
 import SignIn from "./components/Auth/SignIn";
 import Registration from "./components/Auth/Registration";
 import Forwards from "./components/Forwards/Forwards";
+import Profile from "./components/Profile";
+import ActivateAccount from "./components/Auth/ActivateAccount";
+import FollowedPage from "./components/Followed/FollowedPage";
+import ActivationCodePage from "./components/Auth/ActivationCodePage";
 
 function App() {
   return (
@@ -29,13 +33,18 @@ function App() {
                 <Route path="/leagues" element={<Leagues />}>
                     <Route path=":code" element={<Leagues />} />
                 </Route>
-                <Route path="/followed" />
+                <Route path="/followed" element={<FollowedPage />}>
+                    <Route path=":code" element={<FollowedPage />} />
+                </Route>
                 <Route path="/forwards" element={<Forwards />}>
                     <Route path=":code" element={<Forwards />} />
                 </Route>
                 <Route path="/about-us" element={<AboutUs />} />
-                <Route path="/profile" element={<SignIn />} />
+                <Route path="/profile" element={<Profile />} />
+                <Route path="/login" element={<SignIn />} />
                 <Route path="/registration" element={<Registration />} />
+                <Route path="/user/*" element={<ActivateAccount />} />
+                <Route path="/activation/mail" element={<ActivationCodePage />} />
 
                 <Route path='*' element={<ErrorPage />} />
             </Routes>
@@ -44,9 +53,15 @@ function App() {
             <div className="footer__wrap container">
                 <div className="footer__msg-box">
                     <Image src={logo} className="footer__image" alt="YourScore logo"/>
-                    <p className="footer__text">all rights reserved</p>
+                    <div className="footer__text-white">
+                        all rights reserved
+                    </div>
                 </div>
-                <p className="footer__text">2023 Valera Kudryavtsev</p>
+                <div className="footer__text">
+                    <p className="footer__text-bgc">
+                        2023 Valera Kudryavtsev
+                    </p>
+                </div>
                 <SocialMedia />
             </div>
         </footer>
