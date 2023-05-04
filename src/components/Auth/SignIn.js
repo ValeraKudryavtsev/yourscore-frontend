@@ -1,8 +1,51 @@
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
+import {useState} from "react";
 
 const SignIn = () => {
-    function signInFun() {
-        console.log("success")
+    const [userData, setUserData] = useState({
+        username: "",
+        password: ""
+    })
+    const [error, setError] = useState(false)
+    const navigate = useNavigate();
+    let fetchResponse = {}
+
+    // useEffect(() => {
+    //     window.localStorage.setItem('token', res.token);
+    // }, [res]);
+
+    function signInFun(e) {
+        e.preventDefault()
+
+        fetch("http://localhost:8080/user/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(userData)
+        })
+            .then(resp => resp.json())
+            .then(data => {
+                // setRes(data)
+                fetchResponse = data
+                console.log(data)
+                console.log(fetchResponse)
+            })
+            .catch(err => {
+                console.log(err)
+            })
+            .finally(() => {
+                setUserData({
+                    username: '',
+                    password: ''
+                })
+                if (fetchResponse.error) {
+                    setError(true)
+                } else {
+                    window.localStorage.setItem('token', fetchResponse.token);
+                    navigate("/profile")
+                }
+            })
     }
 
     return (
@@ -11,15 +54,23 @@ const SignIn = () => {
                 <h3 className="sign-in__title">
                     Вход <span className="sign-in__subtitle">YourScore</span>
                 </h3>
+                {!error ? <></> : <p className="sign-in__error-message">Неверный логин или пароль</p>}
                 <form onSubmit={signInFun} className="sign-in__form">
-                    <input required
-                           className="sign-in__input"
+                    <input required className="sign-in__input"
                            type="text"
                            name="username"
+                           value={userData.username}
+                           onChange={(el) => {
+                               setUserData(prevState => ({...prevState, username: el.target.value}))
+                           }}
                            placeholder="Введите логин"/>
                     <input required className="sign-in__input"
                            type="password"
                            name="password"
+                           value={userData.password}
+                           onChange={(el) => {
+                               setUserData(prevState => ({...prevState, password: el.target.value}))
+                           }}
                            placeholder="Введите пароль"/>
                     <button className="sign-in__button" type="submit">Sign In</button>
                 </form>
