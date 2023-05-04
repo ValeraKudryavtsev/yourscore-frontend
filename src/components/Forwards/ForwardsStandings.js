@@ -16,11 +16,7 @@ const ForwardsStandings = () => {
     useEffect(() => {
         setLoading(true)
         setTimeout(() => {
-            fetch(`https://api.football-data.org/v4/competitions/${code}/scorers`, {
-                headers: {
-                    'X-Auth-Token': 'fe382c8a16f0430ca32f601d38888099'
-                },
-            })
+            fetch(`http://localhost:8080/scorers/${code}`)
                 .then(resp => resp.json())
                 .then(data => {
                     setData(data.scorers)
