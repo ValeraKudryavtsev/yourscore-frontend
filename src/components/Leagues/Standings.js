@@ -46,7 +46,7 @@ const Standings = () => {
                                 <div className="standings__titles">
                                     <p className="team__position">#</p>
                                     <Image src={logo} alt="team logo" className="team__emblem" />
-                                    <p className="team__name">
+                                    <p className={window.localStorage.getItem('token') ? "team__name" : "team__name-unauthorized"}>
                                         КОМАНДА
                                     </p>
                                     <ul className="team-stats__list">
@@ -60,12 +60,15 @@ const Standings = () => {
                                         <li className="team-stats__item team-stats__item-bold">О</li>
                                     </ul>
                                     <div className="team__form">ФОРМА</div>
-                                    <div className="team__follow-button">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" className="team__follow-pic-h" viewBox="0 0 16 16">
-                                            <path
-                                                d="M2 15.5a.5.5 0 0 0 .74.439L8 13.069l5.26 2.87A.5.5 0 0 0 14 15.5V2a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v13.5zM8 4.41c1.387-1.425 4.854 1.07 0 4.277C3.146 5.48 6.613 2.986 8 4.412z"/>
-                                        </svg>
-                                    </div>
+                                    {window.localStorage.getItem('token') ?
+                                        <div className="team__follow-button">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" className="team__follow-pic-h" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M2 15.5a.5.5 0 0 0 .74.439L8 13.069l5.26 2.87A.5.5 0 0 0 14 15.5V2a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v13.5zM8 4.41c1.387-1.425 4.854 1.07 0 4.277C3.146 5.48 6.613 2.986 8 4.412z"/>
+                                            </svg>
+                                        </div> :
+                                        <></>
+                                    }
                                 </div>
                             </div>
                             {data.map((e, id) => <Team team={e} key={id} />)}
