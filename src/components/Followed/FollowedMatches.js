@@ -41,9 +41,9 @@ const FollowedMatches = (props) => {
                     data.length > 0 ?
                         <div className="matches__page">
                             <ul className="matches__list">
-                                {data ? data.map((e, id) => <Match match={e} setId={setId} id={id} key={id} />) : <p>Сегодня нет игр</p>}
+                                {data ? data.map((e, id) => <Match match={e} setId={setId} id={id} currentId={matchesArrayId} key={id} isDate={true} />) : <p>Сегодня нет игр</p>}
                             </ul>
-                            {data[matchesArrayId] ? <LiveScore match={data[matchesArrayId]} /> : null}
+                            {data[matchesArrayId] ? <LiveScore match={data[matchesArrayId]} newStyle={"live-score__wrap-followed"} /> : null}
                         </div> :
                         <p>Расход</p>
             }

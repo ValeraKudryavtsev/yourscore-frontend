@@ -1,22 +1,15 @@
 import Image from "../Other/Image";
 import Team from "./Team";
 import MatchLoad from "./MatchLoad";
+import moment from "moment/moment";
 
 const LiveScore = (props) => {
-    const {match} = props
-
-    const date = new Date()
-    const timeZone = -date.getTimezoneOffset()/60
-    let time = match.utcDate
-        .split('T')[1]
-        .slice(0, -4)
-    const h = (+time.split(':')[0] + timeZone)>24 ? (+time.split(':')[0] + timeZone)%24 : (+time.split(':')[0] + timeZone)
-    const m = time.split(':')[1]
-    time = `${h}:${m}`
+    const {match, newStyle} = props
+    const time = moment(match.utcDate).utc(true).format("HH:mm")
 
     return (
         <div className="live-score">
-            <div className="live-score__wrap">
+            <div className={newStyle ? newStyle + " live-score__wrap" : "live-score__wrap"}>
                 <div className="live-score__header">
                     <Image src={match.area.flag} alt="competition emblem" className="live-score__emblem" />
                     <h3 className="live-score__title">

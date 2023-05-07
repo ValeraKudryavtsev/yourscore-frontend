@@ -114,7 +114,30 @@ html, body {
     display: flex;
     justify-content: space-evenly;
     width: 80%;
-    position: relative;
+    /*position: relative;*/
+}
+
+.matches__empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 500px;
+    text-align: center;
+}
+
+.matches__empty-title {
+    font-size: 21px;
+    line-height: 27px;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
+.matches__empty-text {
+    font-size: 16px;
+    line-height: 27px;
+    font-weight: 400;
+    color: var(--gray);
 }
 
 .matches__list {
@@ -159,6 +182,10 @@ html, body {
     fill: var(--white);
 }
 
+.changeIdButton__icon-current {
+    fill: var(--coral);
+}
+
 .changeIdButton:hover > .changeIdButton__icon {
     cursor: pointer;
     fill: var(--coral);
@@ -167,6 +194,10 @@ html, body {
 .matches__item-emblem {
     height: 40px;
     margin-right: 15px;
+}
+
+.matches__item-title {
+    width: 300px;
 }
 
 .matches__item-subtitle {
@@ -199,6 +230,22 @@ html, body {
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
+}
+
+.match__date-box {
+    padding: 10px 10px 35px 10px;
+    margin-bottom: -25px;
+    background-image: linear-gradient(to top left, #8c2025, rgb(103, 50, 161));
+    color: var(--white);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.match__date {
+    font-size: 15px;
+    line-height: 16px;
+    text-transform: capitalize;
+    padding: 5px;
 }
 
 .match__status {
@@ -252,6 +299,10 @@ html, body {
     flex-direction: column;
     position: sticky;
     top: 25px;
+}
+
+.live-score__wrap-followed {
+    top: 66px;
 }
 
 .live-score__header {
@@ -627,6 +678,45 @@ html, body {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
+}
+
+.followed__info-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 500px;
+    text-align: center;
+}
+
+.followed__info-image {
+    width: 80px;
+    height: 80px;
+    margin-top: 80px;
+    margin-bottom: 30px;
+}
+
+.followed__info-image .gradient-bg {
+    fill: url(#followed__info-image-bgc);
+}
+
+#followed__info-image-bgc {
+    --color-stop: rgb(103, 50, 161);
+    --color-bot: var(--coral);
+}
+
+.followed__info-title {
+    font-size: 21px;
+    line-height: 27px;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
+.followed__info-text {
+    font-size: 16px;
+    line-height: 27px;
+    font-weight: 400;
+    color: var(--gray);
 }
 
 /*-----------------------------------------------------------------------------------*/

@@ -1,16 +1,12 @@
 import Image from "../Other/Image";
 import MatchLoad from "./MatchLoad";
+import moment from "moment";
 
 const Game = (props) => {
     const {match} = props
-    const date = new Date()
-    const timeZone = -date.getTimezoneOffset()/60
-    let time = match.utcDate
-        .split('T')[1]
-        .slice(0, -4)
-    const h = (+time.split(':')[0] + timeZone)>24 ? (+time.split(':')[0] + timeZone)%24 : (+time.split(':')[0] + timeZone)
-    const m = time.split(':')[1]
-    time = `${h}:${m}`
+    // console.log(moment(match.utcDate).utc(true).format("HH:mm"))
+    // console.log(moment(match.utcDate).utc(true).format("DD.MM HH:mm"))
+    const time = moment(match.utcDate).utc(true).format("HH:mm")
 
     return (
         <div className="match">
