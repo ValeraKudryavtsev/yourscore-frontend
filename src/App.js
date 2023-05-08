@@ -12,10 +12,12 @@ import MatchesPage from "./components/Matches/MatchesPage";
 import SignIn from "./components/Auth/SignIn";
 import Registration from "./components/Auth/Registration";
 import Forwards from "./components/Forwards/Forwards";
-import Profile from "./components/Profile";
+import Profile from "./components/Profile/Profile";
 import ActivateAccount from "./components/Auth/ActivateAccount";
 import FollowedPage from "./components/Followed/FollowedPage";
 import ActivationCodePage from "./components/Auth/ActivationCodePage";
+import DeleteProfile from "./components/Profile/DeleteProfile";
+import EditProfile from "./components/Profile/EditProfile";
 
 function App() {
   return (
@@ -41,6 +43,8 @@ function App() {
                 </Route>
                 <Route path="/about-us" element={<AboutUs />} />
                 <Route path="/profile" element={<Profile />} />
+                <Route path="/delete-acc" element={<DeleteProfile />} />
+                <Route path="/edit-acc" element={<EditProfile />} />
                 <Route path="/login" element={<SignIn />} />
                 <Route path="/registration" element={<Registration />} />
                 <Route path="/user/*" element={<ActivateAccount />} />
