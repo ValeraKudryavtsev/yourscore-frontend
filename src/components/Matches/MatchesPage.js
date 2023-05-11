@@ -15,7 +15,7 @@ const MatchesPage = () => {
     useEffect(() => {
         setLoading(true)
         setTimeout(() => {
-            fetch("http://localhost:8080/matches")
+            fetch("https://yourscore-backend.onrender.com/matches")
                 .then(resp => resp.json())
                 .then(data => {
                     setData(data.matches)

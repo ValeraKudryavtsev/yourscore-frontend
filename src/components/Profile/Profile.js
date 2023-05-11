@@ -13,7 +13,7 @@ const Profile = () => {
     useEffect(() => {
         setLoading(true)
         setTimeout(() => {
-            fetch("http://localhost:8080/user/get", {
+            fetch("https://yourscore-backend.onrender.com/user/get", {
                 headers: {
                     "Content-Type": "application/json",
                     "AUTHORIZATION": window.localStorage.getItem('token')
@@ -31,7 +31,7 @@ const Profile = () => {
                 .finally(() => {
                     setLoading(false)
                 })
-            fetch("http://localhost:8080/team/list", {
+            fetch("https://yourscore-backend.onrender.com/team/list", {
                 method: 'GET',
                 headers: {
                     "Content-Type": "application/json",

@@ -17,7 +17,7 @@ const SignIn = () => {
     function signInFun(e) {
         e.preventDefault()
 
-        fetch("http://localhost:8080/user/login", {
+        fetch("https://yourscore-backend.onrender.com/user/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
